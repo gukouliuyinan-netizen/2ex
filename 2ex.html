@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <th>
+        <h1>めるす</h1>
+    </th>
+    <p>三重県出身の大学生。<br>
+        趣味はゲーム、けん玉。<br>
+        好きな食べ物はラーメン。<br>
+        好きな音楽は「Aimer」。<br>
+        将来の夢はゲームクリエイターになること。</p>
+
+    <ol>
+        <li>好きなゲームは「osu!」</li>
+        <li>好きなアニメは「鬼滅の刃」</li>
+        <li>好きな漫画は「ワンピース」</li>
+    </ol>
+
+    <h2>osu!のプロフィール</h2>
+    <ul>
+        <li>osu!のユーザー名は「めるす」</li>
+        <li>osu!のユーザーIDは「39508851」</li>
+        <li>osu!のランクは「#1,234」</li>
+    </ul>
+    <a href="https://osu.ppy.sh/users/39508851" target="_blank"><img src="odusioriha.png" alt="osu!プロフィール"></a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>項目</th>
+                <th>osu!キャッチ</th>
+                <th>osu!マニア</th>
+                <th>osu!タイコ</th>
+                <th>osu!スタンダード</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ランク</td>
+                <td>#1,234</td>
+                <td>#2,345</td>
+                <td>#3,456</td>
+                <td>#4,567</td>
+            </tr>
+            <tr>
+                <td>プレイ回数</td>
+                <td>1,234回</td>
+                <td>2,345回</td>
+                <td>3,456回</td>
+                <td>4,567回</td>
+            </tr>
+        </tbody>
+    </table>
+        <th>
+            <h2>質問箱</h2>
+
+            </th>
+    <form action="/submit_question" method="post">
+        <label for="name">名前:</label><br>
+        <input type="text" id="name" name="name" placeholder="名前を入力してください"><br>
+        <dt>質問の種類</dt>
+        <dd>
+            <input type="radio" name="question_type" value="general" id="general">一般的な質問<br>
+            <input type="radio" name="question_type" value="osu" id="osu">osu!に関する質問<br>
+        </dd>
+        <label for="question">質問を入力してください:</label><br>
+        <textarea id="question" name="question" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="送信">
+    </form>
+</body>
+</html>
