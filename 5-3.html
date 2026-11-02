@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>CSSセレクタ：順番に比較するデモ</title>
+  <link rel="stylesheet" href="5-3.css" />
+</head>
+<body>
+  <!-- 1) タイプセレクタ（h1） -->
+  <h1>1) タイプセレクタ（h1 にだけ適用）</h1>
+
+  <!-- 2) 複数セレクタ（タグのみをカンマで並べる） -->
+  <h2>2) 複数セレクタ（h2, h3）</h2>
+  <h3>この h3 も同じ指定が当たります</h3>
+  <!-- ※ 複数セレクタは「h2, .note」のようにクラスも混ぜられます（今回はタグのみで比較） -->
+
+  <!-- 3) クラスセレクタ（.highlight） -->
+  <h2>3) クラスセレクタ（.highlight）</h2>
+  <p> これは通常の段落です（クラスなし）</p>
+  <p class="highlight">これは .highlight クラスを付けた段落です</p>
+
+  <!-- 4) idセレクタ（idのみ / id+class の比較） -->
+  <h2>4) idセレクタ（特異性の比較）</h2>
+  <p id="only-id">id="only-id"（id のみ）</p>
+  <p id="with-id" class="highlight">
+    id="with-id" ＋ class="highlight"（同じ要素に id と class があると、id の方が優先）
+  </p>
+
+  <!-- 5) 子孫セレクタ（.card 内の p と、外側の p の比較） -->
+  <h2>5) 子孫セレクタ（.card 内の p にだけ適用）</h2>
+  <p>（カード外の段落）これは通常の p です</p>
+
+  <div class="card">
+    <p>（カード内の段落）.card の内側にある p にだけ別の見た目を当てます</p>
+  </div>
+</body>
+</html>

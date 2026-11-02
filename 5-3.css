@@ -1,0 +1,58 @@
+/* できるだけシンプルに。色と下線・枠で“当たっている”のが見えるようにする */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Meiryo, sans-serif;
+  line-height: 1.7;
+  margin: 24px;
+}
+
+/* 1) タイプセレクタ（要素名で指定） */
+h1 {
+  color: #2563eb;              /* 青 */
+  border-bottom: 2px solid #2563eb;
+  padding-bottom: 4px;
+}
+
+/* 2) 複数セレクタ（タグのみ） */
+h2, h3{
+  background: #eef2ff;         /* 薄い青背景 */
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+/* ※ 複数セレクタは「h2, .highlight」のようにクラスも混ぜられます（今回はタグのみで比較）　*/
+
+/* 3) クラスセレクタ */
+.highlight {
+  color: #7c3aed;               /* 紫 */
+  text-decoration: underline;
+}
+
+/* 4) idセレクタ（特異性：id > class） */
+#only-id {
+  color: #dc2626;               /* 赤 */
+  font-weight: 700;
+  border-left: 4px solid #dc2626;
+  padding-left: 8px;
+}
+
+#with-id {
+  color: #1f2937;               /* ダークグレー（id が最終色に） */
+  font-weight: 700;
+  border-left: 4px solid #1f2937;
+  padding-left: 8px;
+}
+
+/* 5) 子孫セレクタ（.card の中の p だけに適用） */
+.card {
+  border: 1px solid #e5e7eb;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.card ,p {
+  background: #fff7ed;          /* 薄いオレンジ背景 */
+  border-left: 4px solid #f59e0b;
+  padding: 6px 8px;
+}
+
+/* 参考：通常の p は何も上書きしない（比較がしやすいように） */

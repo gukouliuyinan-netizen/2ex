@@ -1,0 +1,38 @@
+/* ① ページ全体の書体設定 */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+/* ② ページのいちばん上の見出し (h1) */
+h1 {
+    color: #cc3300;
+}
+
+/* ③ 見出し (h2) の下の線（border-bottom） */
+h2 {
+    border-bottom: 2px solid #333333;
+    padding-bottom: 5px;
+}
+
+/* ④ 表の罫線をCSSに置き換える ＋ 二重線を1本にまとめる */
+table, th, td {
+    border: 1px solid #333333;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 8px 12px;
+}
+
+/* ⑤ 自分で名前をつけた class の例（好きなものや一言を装飾） */
+.favorite {
+    color: #0066cc;
+    font-weight: bold;
+}

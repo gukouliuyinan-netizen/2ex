@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>CSSの組み込み方法デモ</title>
+
+  <!-- ③ 外部CSSファイル -->
+  <link rel="stylesheet" href="5-2.css" />
+
+  <!-- ② 内部CSS（styleタグ） -->
+  <style>
+    /* 外部CSSより“後”に読み込まれるため、同じセレクタならこちらが優先されます（カスケード） */
+    .title {
+      color: purple;            /* 外部CSSの .title{ color: royalblue } を上書き */
+      text-decoration: underline;
+    }
+
+    /* ページ内だけで使う、軽い調整の例 */
+    .local-note {
+      color: orange;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <!-- ① インラインCSS（style属性） -->
+    <!-- 同じ要素への指定では、通常インライン > 内部 > 外部 の順で強い（!importantは除く） -->
+    <h1 class="title" style="color: red;">
+      CSSの3つの組み込み方法（インライン / 内部 / 外部）
+    </h1>
+    <p class="lead">
+      この見出し（h1）は <code>class="title"</code> かつ <code>style="color:red"</code> を指定しています。<br>
+      外部CSS → 内部CSS → インライン の**優先順位**を確認しましょう。
+    </p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>① インライン（style属性）</h2>
+      <p>
+        <strong>インライン</strong>は、HTMLタグの <code>style=""</code> 属性で直接スタイルを書く方法です。<br>
+        例：<code>&lt;h1 style="color:red"&gt;</code><br>
+        小さい上書きや一時的な調整には便利ですが、**再利用性が低く、管理が難しくなる**ため乱用は非推奨です。
+      </p>
+      <p class="try">
+        ▶ 実験：上の <code>&lt;h1&gt;</code> から <code>style="color:red"</code> を一度削除して、色の変化を見てください。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>② 内部CSS（&lt;style&gt;タグ）</h2>
+      <p>
+        <strong>内部CSS</strong>は、ページの <code>&lt;head&gt;</code> 内に <code>&lt;style&gt;</code> タグで書く方法です。<br>
+        同一HTMLファイル内で完結しますが、**ファイルが長くなりやすい**という難点があります。
+      </p>
+      <p class="local-note">この一文は内部CSSで色を指定しています（.local-note）。</p>
+      <p class="try">
+        ▶ 実験：<code>&lt;style&gt;</code> 内の <code>.title { color: purple; }</code> をコメントアウトすると、<br>
+        h1の色は（インラインを消していれば）外部CSSの色に戻ります。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>③ 外部CSS（.cssファイル）</h2>
+      <p>
+        <strong>外部CSS</strong>は、スタイルを別ファイル（例：<code>styles.css</code>）に分離する方法です。<br>
+        **再利用性・保守性が高く、実務で最も一般的**です。
+      </p>
+      <ul>
+        <li>複数ページで同じ見た目を共有できる</li>
+        <li>HTML（構造）とCSS（見た目）を分離できる</li>
+      </ul>
+      <p class="try">
+        ▶ 実験：<code>&lt;link rel="stylesheet" href="5-2.css"&gt;</code> の行を一時的に削除し、<br>
+        レイアウトや色がどう変わるか確認してください。
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>補足：優先順位（カスケード）</h2>
+      <ol>
+        <li>（通常）インライン &gt; 内部 &gt; 外部</li>
+        <li>同じ“組み込みレベル”なら、**後から読み込まれた定義**が強い</li>
+        <li><code>!important</code> はさらに強い（今回は未使用）</li>
+      </ol>
+      <p class="note">
+        実装では、**基本は外部CSS** → 必要に応じて内部CSS → 最後の手段でインライン、が推奨。
+      </p>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>Section 4 CSSの組み込み方法</p>
+  </footer>
+</body>
+</html>
